@@ -17,15 +17,8 @@ function validEmail(email) {
   return emailRegex.test(email);
 }
 
-// Everytime user types something in the input boxes, we check if the form fields are valid.
-document.querySelectorAll("input").forEach((element) => {
-  element.addEventListener("focus", () => {
-    element.classList.remove("error");
-    element.nextElementSibling.classList.remove("show");
-  });
-});
-
 function validateForm() {
+  ev.preventDefault();
   // Validate first name.
   if (isEmpty(firstName.value)) {
     firstName.classList.add("error"); // If the field is empty, display the following error message.
@@ -48,6 +41,19 @@ function validateForm() {
   }
 }
 
+// Everytime user types something in the input boxes, we check if the form fields are valid.
+document.querySelectorAll("input").forEach((element) => {
+  element.addEventListener("focus", () => {
+    element.classList.remove("error");
+    element.nextElementSibling.classList.remove("show");
+  });
+});
+
+/*form.addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  validateForm();
+});*/
+
 /*const buttonElement = document.querySelector("btn");
 
 function handleButtonClick(ev) {
@@ -56,8 +62,3 @@ function handleButtonClick(ev) {
 }
 
 buttonElement.addEventListener("click", handleButtonClick);*/
-
-form.addEventListener("submit", () => {
-  ev.preventDefault();
-  validateForm();
-});
