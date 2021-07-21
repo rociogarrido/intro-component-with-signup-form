@@ -18,7 +18,6 @@ function validEmail(email) {
 }
 
 function validateForm() {
-  ev.preventDefault();
   // Validate first name.
   if (isEmpty(firstName.value)) {
     firstName.classList.add("error"); // If the field is empty, display the following error message.
