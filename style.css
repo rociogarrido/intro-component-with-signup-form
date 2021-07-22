@@ -267,7 +267,7 @@ h1.pricing {
 }
 
 /* desktop styles */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1025px) {
   body {
     background-image: url(./images/bg-intro-desktop.png);
   }
@@ -275,7 +275,6 @@ h1.pricing {
   main {
     width: 77%;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     max-width: 1440px;
