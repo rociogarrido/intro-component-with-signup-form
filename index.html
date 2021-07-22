@@ -28,7 +28,7 @@
       <h1 class="pricing text-regular">
         <span class="text-bold">Try it free 7 days</span> then $20/mo. thereafter
       </h1>
-      <form onclick="">
+      <form onsubmit="event.preventDefault(); validateForm()";>
         <div class="input-field">
           <input type="text" class="fname" id="fname" placeholder="First Name">
           <p class="error-msg text-medium">First Name cannot be empty</p>

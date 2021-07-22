@@ -1,14 +1,14 @@
 "use strict";
 
 // Variables to get the HTML elements for the form's input boxes.
-const firstName = document.querySelector("fname");
-const lastName = document.querySelector("lname");
-const email = document.querySelector("email");
-const password = document.querySelector("password");
 
-function isEmpty(value) {
-  return value.length == 0;
-}
+let firstName = document.getElementById("fname");
+let lastName = document.getElementById("lname");
+let email = document.getElementById("email");
+let password = document.getElementById("password");
+let form = document.getElementById("form");
+
+//form.addEventListener("submit", validateForm());
 
 // Function to check and ensure the email contains at least one character, an @ symbol, then a non whitespace character.
 function validEmail(email) {
@@ -17,47 +17,29 @@ function validEmail(email) {
   return emailRegex.test(email);
 }
 
-function validateForm() {
-  // Validate first name.
-  if (isEmpty(firstName.value)) {
-    firstName.classList.add("error"); // If the field is empty, display the following error message.
+function validateForm(ev) {
+  if (!firstName.value) {
+    firstName.classList.add("error");
     firstName.nextElementSibling.classList.add("show");
   }
-  // Validate last name
-  if (isEmpty(lastName.value)) {
+  if (!lastName.value) {
     lastName.classList.add("error");
     lastName.nextElementSibling.classList.add("show");
   }
-  // Validate email
-  if (isEmpty(email.value) || !validEmail(email.value)) {
+  if (!email.value || !validEmail(email.value)) {
     email.classList.add("error");
     email.nextElementSibling.classList.add("show");
   }
-  // Validate password
-  if (isEmpty(password.value)) {
+  if (!password.value) {
     password.classList.add("error");
     password.nextElementSibling.classList.add("show");
   }
 }
 
-// Everytime user types something in the input boxes, we check if the form fields are valid.
+//Everytime user types something in the input boxes, we check if the form fields are valid.
 document.querySelectorAll("input").forEach((element) => {
   element.addEventListener("focus", () => {
     element.classList.remove("error");
     element.nextElementSibling.classList.remove("show");
   });
 });
-
-/*form.addEventListener("submit", (ev) => {
-  ev.preventDefault();
-  validateForm();
-});*/
-
-/*const buttonElement = document.querySelector("btn");
-
-function handleButtonClick(ev) {
-  ev.preventDefault(); // first, we prevent the form from being sent by canceling the event;
-  validateForm(); // then, we validate the form;
-}
-
-buttonElement.addEventListener("click", handleButtonClick);*/
